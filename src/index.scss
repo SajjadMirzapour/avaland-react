@@ -1,0 +1,130 @@
+body {
+  margin: 0;
+  direction: rtl;
+  // font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+  //   "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "peyda";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden;
+  background-color: #010101;
+}
+
+@font-face {
+  font-family: "peyda";
+  src: url("../public/fonts/PeydaWeb-Medium.woff");
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+html {
+  @media (max-width: 1440px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 10px;
+  }
+}
+
+#app {
+  font-family: peyda;
+  -moz-osx-font-smoothing: grayscale;
+  direction: rtl;
+}
+
+p {
+  margin: 0px;
+}
+
+input {
+  font-family: peyda;
+  padding: 0px;
+  border: 0px;
+  outline: none;
+}
+
+textarea {
+  border: 0px;
+  outline: none;
+  font-family: peyda;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  padding: 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0px;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+button {
+  font-family: peyda;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  padding: 0px;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+$primaryColor: #ffa928;
+
+.sidebar {
+  &__menu-item:hover svg {
+    border-right: 1px solid $primaryColor;
+
+    path:first-child {
+      stroke: $primaryColor;
+      fill: $primaryColor;
+    }
+
+    path {
+      fill: #0f0f0f;
+      stroke: $primaryColor;
+    }
+  }
+}
+
+.active {
+  svg {
+    border-right: 1px solid $primaryColor;
+
+    path:first-child {
+      stroke: $primaryColor;
+      fill: $primaryColor;
+    }
+
+    path {
+      fill: #0f0f0f;
+      stroke: $primaryColor;
+    }
+  }
+
+  span {
+    color: $primaryColor;
+  }
+}
