@@ -1,0 +1,95 @@
+$primaryColor: #ffa928;
+$secondaryColor: #0f0f0f;
+$myBackgroundColor: #464646;
+
+nav {
+    @media (max-width: 768px) {
+        display: flex;
+    }
+
+    display: none;
+    position: fixed;
+    height: 64px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    font-size: 10px;
+    padding: 0px 1.5rem;
+    box-sizing: border-box;
+    background-color: rgba($color: $myBackgroundColor, $alpha: 0.5);
+    backdrop-filter: blur(15px);
+    z-index: 3;
+
+    .menu {
+        // width: calc(100% - 32px);
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__item {
+            width: 100px;
+            padding: 8px 6.5px;
+            text-align: center;
+        }
+
+        &__item:hover {
+            path:first-child {
+                stroke: $primaryColor;
+                fill: $primaryColor;
+            }
+
+            path {
+                fill: #0f0f0f;
+                stroke: $primaryColor;
+            }
+
+            span {
+                color: $primaryColor;
+            }
+        }
+
+        &__item svg {
+            display: block;
+            margin: 0px auto 0.75rem auto;
+        }
+
+        &__item span {
+            display: block;
+            font: 0.625rem;
+            font-weight: 400;
+            color: #999999;
+        }
+
+        // &__item:hover div svg {
+        //   path {
+        //     stroke: $primaryColor;
+        //   }
+        // }
+
+        // &__item:hover span {
+        //   color: $primaryColor;
+        // }
+    }
+
+    .active {
+        svg {
+            path:first-child {
+                stroke: $primaryColor;
+                fill: $primaryColor;
+            }
+
+            path {
+                fill: #0f0f0f;
+                stroke: $primaryColor;
+            }
+        }
+
+        span {
+            color: $primaryColor;
+        }
+    }
+}

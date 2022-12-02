@@ -1,0 +1,95 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+$primaryColor: #ffa928;
+$secondaryColor: #0f0f0f;
+$myBackgroundColor: #464646;
+
+.sidebar {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0f0f0f;
+    padding-top: 32px;
+    font-size: 1rem;
+
+    &__logo {
+        margin: auto;
+        margin-bottom: 68px;
+        @include flex-center;
+        justify-content: center;
+    }
+
+    &__logo-img {
+        width: 43%;
+    }
+
+    &__menu {
+        width: 78.7%;
+        margin: auto;
+        margin-bottom: 10rem;
+        font-weight: 600;
+    }
+
+    &__menu-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+
+        svg {
+            padding-right: 6.9%;
+            border-right: 1px solid #0f0f0f;
+        }
+
+        span {
+            color: #999999;
+        }
+
+        span,
+        svg path,
+        svg {
+            transition: all 300ms;
+        }
+        svg {
+            margin-left: 5%;
+        }
+    }
+    &__menu-item:hover svg {
+        border-right: 1px solid $primaryColor;
+
+        path:first-child {
+            stroke: $primaryColor;
+            fill: $primaryColor;
+        }
+
+        path {
+            fill: #0f0f0f;
+            stroke: $primaryColor;
+        }
+    }
+
+    &__menu-item:hover span {
+        color: $primaryColor;
+    }
+
+    .active {
+        svg {
+            border-right: 1px solid $primaryColor;
+
+            path:first-child {
+                stroke: $primaryColor;
+                fill: $primaryColor;
+            }
+
+            path {
+                fill: #0f0f0f;
+                stroke: $primaryColor;
+            }
+        }
+
+        span {
+            color: $primaryColor;
+        }
+    }
+}
