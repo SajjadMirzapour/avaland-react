@@ -1,0 +1,265 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+$primaryColor: #ffa928;
+$secondaryColor: #0f0f0f;
+$myBackgroundColor: #464646;
+
+.landing {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+.main {
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+
+    width: 75%;
+
+    .img-news {
+        background-image: url("../../../public/images/landing.png"),
+            linear-gradient(0deg, rgba(0, 0, 60, 0.8), rgba(0, 0, 60, 0.8));
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 358px;
+        margin-bottom: 3rem;
+        border-radius: 24px;
+    }
+}
+
+.new-week {
+    &__title {
+        @include flex-center;
+        justify-content: space-between;
+        color: white;
+        margin-bottom: 1rem;
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        a {
+            font-size: 1rem;
+            font-weight: 800;
+            color: $primaryColor;
+        }
+    }
+}
+
+.playlist {
+    margin-bottom: 10rem;
+
+    &__title {
+        @include flex-center;
+        justify-content: space-between;
+        color: white;
+        margin-bottom: 1rem;
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        a {
+            font-size: 1rem;
+            font-weight: 800;
+            color: $primaryColor;
+        }
+    }
+}
+
+.card-container {
+    background-color: rgba($color: #464646, $alpha: 0.4);
+    border-radius: 24px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 72px 3%;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: repeat(3, auto);
+    }
+
+    @media (max-width: 613px) {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    @media (max-width: 425px) {
+        grid-template-columns: repeat(1, auto);
+    }
+}
+
+.card {
+    width: 100%;
+
+    &__body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+    }
+
+    img {
+        width: 100%;
+        aspect-ratio: 1.16;
+    }
+
+    h3 {
+        margin-bottom: 9px;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    span {
+        color: #999999;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+}
+
+.playlist {
+    &__title {
+        @include flex-center();
+        justify-content: space-between;
+    }
+}
+
+.navigation {
+    @media (max-width: 768px) {
+        display: none;
+    }
+    padding-bottom: 3rem;
+    width: 23%;
+    text-align: center;
+
+    .special-acount {
+        background-color: rgba($color: $myBackgroundColor, $alpha: 0.4);
+        backdrop-filter: blur(5px);
+        border-radius: 16px;
+        padding: 24px 2rem;
+        height: 310px;
+        margin-bottom: 3rem;
+
+        &__logo {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+    }
+    h3 {
+        font-size: 1.125rem;
+        font-weight: 500;
+        margin-bottom: 3rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+        font-weight: 300;
+        color: #999999;
+    }
+}
+
+.music-controller {
+    background-color: transparent;
+
+    &__btns {
+        margin-bottom: 2rem;
+        display: flex;
+    }
+
+    &__history {
+        color: #999999;
+        font-size: 0.875rempx;
+        padding-right: 0.5rem;
+        padding-left: 1.12rem;
+        width: 60%;
+        border-radius: 16px;
+        font-size: 1rem;
+        font-weight: 700;
+        background-color: rgba($color: $myBackgroundColor, $alpha: 0.4);
+        transition: all 0.3s;
+    }
+
+    &__history:hover {
+        color: #c7bfbf;
+        background-color: rgba($color: $myBackgroundColor, $alpha: 0.35);
+    }
+
+    &__favorites {
+        color: white;
+        padding: 1rem 0.5rem;
+        border-radius: 16px;
+        font-size: 0.875rem;
+        font-weight: 700;
+        width: 60%;
+        margin-right: -20px;
+        background-image: linear-gradient(108.1deg, #fe8a48 -11.1%, #fda53e 112.32%);
+        backdrop-filter: blur(5px);
+    }
+
+    &__list {
+        background-color: rgba($color: #464646, $alpha: 0.4);
+        border-radius: 24px;
+
+        .mini-card-container {
+            padding: 1rem 1.375rem;
+            height: 570px;
+            overflow-y: auto;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .mini-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.25rem;
+
+            &__poster {
+                width: 64px;
+                height: 64px;
+                border-radius: 1rem;
+            }
+
+            img {
+                margin-left: 1rem;
+            }
+
+            h4 {
+                font-size: 1rem;
+                font-weight: 700;
+                text-align: right;
+                margin-bottom: 0.75rem;
+            }
+
+            &__like {
+                @include flex-center();
+
+                div {
+                    @include flex-center();
+                }
+
+                span {
+                    font-size: 0.7rem;
+                    font-weight: 500;
+                    color: #999999;
+                }
+            }
+        }
+    }
+}
