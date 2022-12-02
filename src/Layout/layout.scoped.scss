@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+
+    .sidebar {
+        @media (max-width: 768px) {
+            display: none;
+        }
+        @media (min-width: 1536px) {
+            min-width: 215px;
+        }
+        @media (min-width: 1024px) and (max-width: 1535px) {
+            min-width: 170px;
+        }
+
+        min-width: 147px;
+        width: 13.5%;
+        background-color: #0f0f0f;
+    }
+
+    .sidebar-mobile {
+        @media (min-width: 769px) {
+            display: none;
+        }
+    }
+
+    .main-container {
+        @media (max-width: 768px) {
+            width: 100%;
+            padding: 0px 1.5rem;
+        }
+
+        background-color: #010101;
+        width: 100%;
+        min-height: 100vh;
+        padding-right: 2.3%;
+        padding-left: 7.6%;
+    }
+}
