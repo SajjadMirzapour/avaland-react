@@ -1,0 +1,22 @@
+main {
+    background-color: rgba($color: #464646, $alpha: 0.4);
+    padding: 3rem 4rem;
+    display: grid;
+    border-radius: 24px;
+    margin-bottom: 10rem;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: repeat(3, auto);
+    }
+
+    @media (max-width: 613px) {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    @media (max-width: 425px) {
+        grid-template-columns: repeat(1, auto);
+    }
+
+    grid-template-columns: repeat(4, auto);
+    gap: 72px 5%;
+}

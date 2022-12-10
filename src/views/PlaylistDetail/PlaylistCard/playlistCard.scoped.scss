@@ -1,0 +1,176 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+$primaryColor: #ffa928;
+$secondaryColor: #0f0f0f;
+$myBackgroundColor: #464646;
+
+.playlist-card {
+    @media (min-width: 768px) {
+        background-image: url("../../../../public/images/playlist-info.png"),
+            linear-gradient(90.01deg, rgba(15, 15, 15, 0.45) 0.07%, $secondaryColor 54.18%);
+        border-radius: 20px;
+        aspect-ratio: 4.76;
+    }
+
+    background-image: url("../../../../public/images/playlist-info-mobile.png"),
+        linear-gradient(90.01deg, rgba(15, 15, 15, 0.45) 0.07%, #0f0f0f 54.18%, #0f0f0f 99.99%);
+    backdrop-filter: blur(7px);
+    background-repeat: no-repeat;
+    border-radius: 0.5rem;
+    margin-bottom: 40px;
+    color: rgba($color: #ffffff, $alpha: 0.6);
+    width: 100%;
+
+    &__info {
+        @media (min-width: 768px) {
+            padding-right: 4.6%;
+            padding-top: 3.7%;
+        }
+        padding: 8px;
+        @include flex-center();
+
+        div h1 {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            text-align: right;
+        }
+    }
+
+    &__music-sign {
+        @media (min-width: 768px) {
+            width: 24px;
+        }
+        width: 16px;
+    }
+
+    &__clock {
+        @media (min-width: 768px) {
+            width: 24px;
+        }
+        width: 16px;
+    }
+
+    &__wrapper {
+        position: relative;
+        width: 14.1%;
+        min-width: 66px;
+        margin-left: 3rem;
+    }
+
+    &__img {
+        width: 100%;
+        @media (min-width: 768px) {
+            border-radius: 30px;
+        }
+        border-radius: 10px;
+    }
+
+    &__detail {
+    }
+
+    &__list {
+        width: 116px;
+        height: 34px;
+        border-radius: 14px;
+        @include flex-center();
+        justify-content: center;
+        margin-bottom: 12px;
+        background-color: rgba($color: #fb8a0d, $alpha: 0.2);
+        color: $primaryColor;
+    }
+
+    &__infoWrapper {
+        @include flex-center();
+        margin-bottom: 16px;
+    }
+
+    &__songsWrapper {
+        @include flex-center();
+        padding-left: 19px;
+        border-left: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+
+        img {
+            margin-left: 8px;
+        }
+    }
+
+    &__durationWrapper {
+        @include flex-center();
+        padding-right: 19px;
+
+        img {
+            margin-left: 8px;
+        }
+    }
+
+    &__playBtn {
+        position: absolute;
+        width: 33%;
+        min-width: 40px;
+        bottom: -20px;
+        right: -15%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__btns {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .item {
+            width: 24px;
+            @media (min-width: 768px) {
+                display: flex;
+            }
+            display: none;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .modal {
+            background-color: rgba($color: #464646, $alpha: 0.7);
+            backdrop-filter: blur(12px);
+            padding: 0.5rem;
+            position: absolute;
+            top: 35px;
+            right: 37%;
+            width: 55%;
+            border-radius: 10px;
+
+            div {
+                display: flex;
+                align-items: center;
+                padding: 0.5rem;
+
+                button {
+                    display: flex;
+                    align-items: center;
+                    color: white;
+                    width: 100%;
+
+                    img {
+                        margin-left: 1rem;
+                    }
+                }
+            }
+
+            div:first-child {
+                border-bottom: 1px solid rgba($color: white, $alpha: 0.24);
+            }
+        }
+
+        button {
+            margin-left: 1.5rem;
+        }
+    }
+}
