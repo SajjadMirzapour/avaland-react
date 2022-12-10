@@ -91,12 +91,17 @@ button {
   align-items: center;
 }
 
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
 $primaryColor: #ffa928;
+$secondaryColor: #0f0f0f;
+$myBackgroundColor: #464646;
 
 .sidebar {
   &__menu-item:hover svg {
-    border-right: 1px solid $primaryColor;
-
     path:first-child {
       stroke: $primaryColor;
       fill: $primaryColor;
@@ -111,8 +116,6 @@ $primaryColor: #ffa928;
 
 .active {
   svg {
-    border-right: 1px solid $primaryColor;
-
     path:first-child {
       stroke: $primaryColor;
       fill: $primaryColor;
@@ -122,9 +125,5 @@ $primaryColor: #ffa928;
       fill: #0f0f0f;
       stroke: $primaryColor;
     }
-  }
-
-  span {
-    color: $primaryColor;
   }
 }
