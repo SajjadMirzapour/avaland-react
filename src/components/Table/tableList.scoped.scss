@@ -1,0 +1,110 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+$primaryColor: #ffa928;
+$secondaryColor: #0f0f0f;
+$myBackgroundColor: #464646;
+
+table {
+    @media (max-width: 768px) {
+        display: none;
+    }
+    color: white;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: 8rem;
+
+    th {
+        padding-bottom: 24px;
+        padding-top: 24px;
+        border-bottom: 1px solid #242533;
+    }
+
+    td {
+        padding-top: 36px;
+    }
+
+    .row {
+        &__number {
+            width: 50px;
+        }
+
+        &__title {
+            width: 200px;
+            text-align: right;
+        }
+
+        &__album {
+            width: 350px;
+        }
+
+        &__date {
+            width: 350px;
+        }
+
+        &__menu {
+            width: 160px;
+        }
+    }
+}
+section {
+    @media (min-width: 769px) {
+        display: none;
+    }
+    min-height: 100vh;
+    padding-bottom: 10rem;
+
+    .card {
+        @include flex-center;
+        color: white;
+        padding: 8px 0px;
+        border-bottom: 1px solid rgba($color: white, $alpha: 0.3);
+
+        &__image {
+            width: 64px;
+            margin-left: 1rem;
+        }
+
+        &__info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+
+            h3 {
+                font-size: 1rem;
+                font-weight: 600;
+            }
+
+            h4 {
+                font-size: 0.75rem;
+                font-weight: 400;
+                color: #a3a3a3;
+            }
+        }
+
+        &__details {
+            display: flex;
+            align-items: center;
+
+            color: #a3a3a3;
+        }
+
+        &__play-icon {
+            margin-left: 0.5rem;
+        }
+
+        &__duration {
+            padding-right: 0.5rem;
+        }
+
+        &__play-count {
+            padding-left: 0.5rem;
+            border-left: 1px solid rgba($color: #a3a3a3, $alpha: 0.4);
+        }
+    }
+}

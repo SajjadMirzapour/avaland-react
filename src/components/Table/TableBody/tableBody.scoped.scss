@@ -1,0 +1,74 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+$primaryColor: #ffa928;
+$secondaryColor: #0f0f0f;
+$myBackgroundColor: #464646;
+
+tbody {
+    td {
+        text-align: center;
+        height: 66px;
+    }
+
+    h3 {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .music-card {
+        @include flex-center();
+        position: relative;
+
+        &__avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 0.5rem;
+        }
+
+        &__info {
+            text-align: right;
+            height: 66px;
+            margin-right: 15px;
+            color: white;
+
+            span {
+                font-size: 0.75rem;
+                font-weight: 400;
+                color: #a3a3a3;
+            }
+        }
+
+        &__icon {
+            position: absolute;
+            right: 9%;
+            width: 28px;
+            height: 28px;
+            display: none;
+        }
+
+        &__showIcon {
+            display: block;
+        }
+    }
+
+    .musicInfo {
+        @include flex-center();
+        justify-content: end;
+        position: relative;
+
+        .likeBtn {
+            padding-left: 24px;
+            padding-right: 30px;
+            img {
+                width: 25px;
+            }
+        }
+    }
+
+    .primaryColor {
+        color: $primaryColor;
+    }
+}
