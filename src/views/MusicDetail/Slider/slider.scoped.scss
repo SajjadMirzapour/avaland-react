@@ -1,0 +1,121 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+$primaryColor: #ffa928;
+$secondaryColor: #0f0f0f;
+$myBackgroundColor: #464646;
+
+section {
+    h2 {
+        color: white;
+    }
+
+    .swiper {
+        @media (max-width: 768px) {
+            display: none;
+        }
+        @media (max-width: 1024px) {
+            max-width: 703px;
+        }
+        @media (min-width: 1025px) and (max-width: 1440px) {
+            max-width: 1074px;
+        }
+        @media (min-width: 1441px) and (max-width: 1536px) {
+            max-width: 1105px;
+        }
+        @media (min-width: 1537px) and (max-width: 1600px) {
+            max-width: 1178px;
+        }
+
+        margin-bottom: 10rem;
+        padding: 2rem 24px;
+    }
+
+    .swiper-slide {
+        &__img {
+            width: 200px;
+            border-radius: 1rem;
+        }
+
+        span {
+            color: white;
+        }
+        div {
+            width: 197px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1rem;
+        }
+    }
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    display: none;
+}
+
+.invisible {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.card-container {
+    @media (min-width: 769px) {
+        display: none;
+    }
+    min-height: 70vh;
+
+    .card {
+        @include flex-center;
+        color: white;
+        padding: 8px 0px;
+        border-bottom: 1px solid rgba($color: white, $alpha: 0.3);
+
+        &__image {
+            width: 64px;
+            margin-left: 1rem;
+        }
+
+        &__info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+
+            h3 {
+                font-size: 1rem;
+                font-weight: 600;
+            }
+
+            h4 {
+                font-size: 0.75rem;
+                font-weight: 400;
+                color: #a3a3a3;
+            }
+        }
+
+        &__details {
+            display: flex;
+            align-items: center;
+
+            color: #a3a3a3;
+        }
+
+        &__play-icon {
+            margin-left: 0.5rem;
+        }
+
+        &__duration {
+            padding-right: 0.5rem;
+        }
+
+        &__play-count {
+            padding-left: 0.5rem;
+            border-left: 1px solid rgba($color: #a3a3a3, $alpha: 0.4);
+        }
+    }
+}

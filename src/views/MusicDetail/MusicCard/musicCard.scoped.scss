@@ -1,0 +1,251 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+$primaryColor: #ffa928;
+$secondaryColor: #0f0f0f;
+$myBackgroundColor: #464646;
+
+.playlist-card {
+    width: 100%;
+    @media (max-width: 768px) {
+        background-image: url("../../../../public/images/details-music-mobile-background.png"),
+            linear-gradient(90.01deg, rgba(15, 15, 15, 0.45) 0.07%, #0f0f0f 54.18%, #0f0f0f 99.99%);
+        backdrop-filter: blur(8px);
+        background-repeat: no-repeat;
+        border-radius: 8px;
+    }
+
+    background-image: url("../../../../public/images/detail-background.png"),
+        linear-gradient(
+            90.01deg,
+            rgba(15, 15, 15, 0.45) 0.07%,
+            rgba(15, 15, 15, 0.9) 32.11%,
+            #0f0f0f 54.18%,
+            #0f0f0f 99.99%
+        );
+    backdrop-filter: blur(16px);
+    background-repeat: no-repeat;
+    border-radius: 16px;
+    margin-bottom: 67px;
+    color: rgba($color: #ffffff, $alpha: 0.6);
+
+    &__container {
+        width: 100%;
+        @include flex-center();
+        @media (max-width: 768px) {
+            padding: 8px 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        padding: 36px 3rem;
+    }
+
+    &__info {
+        display: flex;
+
+        div h1 {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            text-align: right;
+        }
+    }
+
+    &__lyrics {
+        @media (max-width: 768px) {
+            display: none;
+        }
+        text-align: right;
+        max-width: 21rem;
+
+        div {
+            padding-bottom: 1rem;
+
+            p {
+                @media (max-width: 768px) {
+                    height: 5.5rem;
+                }
+                height: 7.5rem;
+                overflow-y: hidden;
+            }
+        }
+
+        button {
+            @include flex-center();
+        }
+
+        span {
+            color: $primaryColor;
+            font-size: 0.825rem;
+            font-weight: 400;
+            margin-left: 0.75rem;
+        }
+
+        img {
+            width: 15%;
+        }
+    }
+
+    &__lyrics-mobile {
+        @media (min-width: 769px) {
+            display: none;
+        }
+        text-align: right;
+        max-width: 28rem;
+        padding-bottom: 2rem;
+
+        div {
+            padding-bottom: 1rem;
+
+            p {
+                @media (max-width: 768px) {
+                    height: 5.5rem;
+                }
+                height: 7.5rem;
+                overflow-y: hidden;
+            }
+        }
+
+        button {
+            @include flex-center();
+        }
+
+        span {
+            color: $primaryColor;
+            font-size: 0.825rem;
+            font-weight: 400;
+            margin-left: 0.75rem;
+        }
+
+        img {
+            width: 15%;
+        }
+    }
+
+    &__wrapper {
+        position: relative;
+        margin-left: 3rem;
+        width: 18.8%;
+        min-width: 72px;
+    }
+
+    &__img {
+        width: 100%;
+        aspect-ratio: 1.05;
+        border-radius: 30px;
+    }
+
+    &__detail {
+        width: 16rem;
+        margin-left: 3rem;
+        // padding: 20px 0px;
+    }
+
+    &__list {
+        @include flex-center();
+        width: 116px;
+        height: 34px;
+        border-radius: 14px;
+        justify-content: center;
+        margin-bottom: 12px;
+        background-color: rgba($color: #fb8a0d, $alpha: 0.2);
+        color: $primaryColor;
+    }
+
+    &__infoWrapper {
+        @include flex-center();
+        margin-bottom: 16px;
+    }
+
+    &__songsWrapper {
+        @include flex-center();
+        padding-left: 1rem;
+        border-left: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+
+        img {
+            margin-left: 1rem;
+            min-width: 24px;
+        }
+    }
+
+    &__durationWrapper {
+        @include flex-center();
+        padding-right: 1rem;
+
+        img {
+            padding-left: 1rem;
+            min-width: 24px;
+        }
+
+        svg {
+            margin-left: 8px;
+        }
+    }
+
+    &__playBtn {
+        position: absolute;
+        width: 26%;
+        min-width: 34px;
+        bottom: -20px;
+        right: -13%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__btns {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .item {
+            width: 9%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .more-modal {
+            background-color: rgba($color: #464646, $alpha: 0.7);
+            position: absolute;
+            top: 35px;
+            right: 41%;
+            width: 88%;
+            border-radius: 10px;
+            padding: 0px 0.5rem;
+
+            div {
+                display: flex;
+                align-items: center;
+                padding: 0.5rem;
+
+                button {
+                    display: flex;
+                    align-items: center;
+                    color: white;
+                    width: 100%;
+
+                    img {
+                        margin-left: 1rem;
+                    }
+                }
+            }
+
+            div {
+                border-bottom: 1px solid rgba($color: white, $alpha: 0.24);
+            }
+
+            div:last-child {
+                border-bottom: none;
+            }
+        }
+
+        button {
+            margin-left: 1.5rem;
+        }
+    }
+}
