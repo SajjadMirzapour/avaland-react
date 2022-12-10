@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
 import SidebarMobile from "./Sidebar/SidebarMobile";
+import MusicPlayer from "./MusicPlayer/MusicPlayer";
 
 export default function Layout() {
   return (
@@ -17,7 +18,7 @@ export default function Layout() {
         <Header />
         <Outlet />
       </div>
-      {/* <PlayingMusic /> */}
+      <MusicPlayer />
     </div>
   );
 }

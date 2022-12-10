@@ -29,6 +29,10 @@
             padding: 0px 1.5rem;
         }
 
+        @media (min-width: 769px) {
+            padding-bottom: 8rem;
+        }
+
         background-color: #010101;
         width: 100%;
         min-height: 100vh;
