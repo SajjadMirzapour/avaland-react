@@ -1,16 +1,23 @@
+import { useDispatch } from "react-redux";
+import { getSearchValue } from "src/store/search.slice";
 import "./header.scoped.scss";
 
 export default function Header() {
+  const dispatch = useDispatch();
+
+  const handleSearch = (ev) => {
+    getSearchValue(ev.target.value)(dispatch);
+  };
+
   return (
     <div>
       <header className="header">
         <div className="search">
           <input
             className="search__input"
-            // v-model="searchValue"
             type="text"
             placeholder="جستجو..."
-            // @input="handleSearch"
+            onChange={handleSearch}
           />
           <button
           // onClick={goToSearch()}
