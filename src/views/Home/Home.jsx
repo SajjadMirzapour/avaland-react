@@ -1,18 +1,19 @@
 import "./home.scoped.scss";
 import { NavLink } from "react-router-dom";
-import { fetchUsers } from "src/store/playlist.slice";
+import { fetchPlaylist } from "src/store/playlists.slice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useMemo } from "react";
 import { useGetSongs, useGetFavoriteMusic } from "src/hooks";
+import Card from "src/components/Card/Card";
 
 export default function Home() {
   const dispatch = useDispatch();
-  const playlist = useSelector((store) => store.playlistReducer.playlist);
+  const playlist = useSelector((store) => store.playlistReducer.playlists);
   const { data: music, isLoading: isLoadingSongs } = useGetSongs();
   const { data: favoriteMusic } = useGetFavoriteMusic();
 
   useEffect(() => {
-    fetchUsers()(dispatch);
+    fetchPlaylist()(dispatch);
     // const interval = setInterval(() => {
     //   refetch();
     // }, 5000);
@@ -23,16 +24,17 @@ export default function Home() {
 
   const renderedMusics = useMemo(
     () =>
-      music.slice(0, 4).map((song, index) => (
-        <NavLink key={index} className="card" to={`/musics/${song.id}`}>
-          <img className="card__img" src={song.image_path} alt="#" />
-          <div className="card__body">
-            <div className="card__title">
-              <h3>{song.name}</h3>
-              <span>{song.singer}</span>
-            </div>
-          </div>
-        </NavLink>
+      music.slice(0, 4).map((song) => (
+        <Card data={song} key={song.id} />
+        // <NavLink key={index} className="card" to={`/musics/${song.id}`}>
+        //   <img className="card__img" src={song.image_path} alt="#" />
+        //   <div className="card__body">
+        //     <div className="card__title">
+        //       <h3>{song.name}</h3>
+        //       <span>{song.singer}</span>
+        //     </div>
+        //   </div>
+        // </NavLink>
       )),
     [music]
   );
@@ -54,16 +56,17 @@ export default function Home() {
           </div>
           <div className="card-container">
             {playlist.slice(0, 4).map((playlist, index) => (
+              // <Card />
               <NavLink
                 key={index}
                 className="card"
-                to={`/musics/${playlist.id}`}
+                to={`/playlists/${playlist.id}`}
               >
                 <img className="card__img" src={playlist.image} alt="#" />
                 <div className="card__body">
                   <div className="card__title">
                     <h3>{playlist.name}</h3>
-                    <span>{playlist.creator}</span>
+                    <span>ایجاد شده توسط {playlist.creator}</span>
                   </div>
                 </div>
               </NavLink>

@@ -12,7 +12,8 @@ $myBackgroundColor: #464646;
     justify-content: space-between;
     color: white;
 }
-.main {
+
+main {
     @media (max-width: 768px) {
         width: 100%;
     }
@@ -108,6 +109,7 @@ $myBackgroundColor: #464646;
     img {
         width: 100%;
         aspect-ratio: 1.16;
+        border-radius: 1rem;
     }
 
     h3 {
@@ -144,7 +146,7 @@ $myBackgroundColor: #464646;
         border-radius: 16px;
         padding: 24px 2rem;
         height: 310px;
-        margin-bottom: 3rem;
+        margin-bottom: 1rem;
 
         &__logo {
             margin: auto;
@@ -176,7 +178,7 @@ $myBackgroundColor: #464646;
     background-color: transparent;
 
     &__btns {
-        margin-bottom: 2rem;
+        margin-bottom: 1.46rem;
         display: flex;
     }
 
@@ -216,7 +218,7 @@ $myBackgroundColor: #464646;
 
         .mini-card-container {
             padding: 1rem 1.375rem;
-            height: 570px;
+            height: 624px;
             overflow-y: auto;
         }
 
