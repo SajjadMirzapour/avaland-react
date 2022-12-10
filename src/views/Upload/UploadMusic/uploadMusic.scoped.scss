@@ -1,0 +1,131 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+$primaryColor: #ffa928;
+$secondaryColor: #0f0f0f;
+$myBackgroundColor: #464646;
+
+section {
+    margin-bottom: 2rem;
+
+    .breadcrumb {
+        margin-bottom: 48px;
+
+        a,
+        img {
+            margin-left: 8px;
+        }
+
+        a {
+            color: #999999;
+            padding: 8px;
+            border-bottom: 1px solid myBackgroundColor;
+        }
+
+        a:hover {
+            color: $primaryColor;
+            border-bottom: 1px solid $primaryColor;
+        }
+    }
+
+    .upload {
+        color: white;
+
+        h2 {
+            margin-bottom: 16px;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        &__context {
+            background-color: rgba($color: $myBackgroundColor, $alpha: 0.4);
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+
+            div:first-child {
+                border: 2px dashed rgba(255, 255, 255, 0.25);
+                border-radius: 12px;
+                padding: 4.5rem 0px;
+                width: 100%;
+                text-align: center;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+                font-weight: 600;
+                margin-bottom: 16px;
+            }
+        }
+
+        &__warning {
+            @include flex-center();
+            margin-top: 16px;
+
+            img {
+                margin-left: 4px;
+            }
+
+            p {
+                margin-right: 4px;
+                color: #999999;
+                font-size: 0.875rem;
+            }
+        }
+
+        &__btn {
+            background-color: $primaryColor;
+            color: white;
+            width: 19.2%;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+
+            align-items: center;
+            margin: auto;
+            border-radius: 8px;
+            transition: all;
+            transition-duration: 450ms;
+            font-family: peyda;
+            cursor: pointer;
+        }
+
+        &__btn:hover {
+            background-color: rgba($color: $primaryColor, $alpha: 0.8);
+        }
+
+        &__progress {
+            direction: ltr;
+        }
+
+        &__progress[value] {
+            -webkit-appearance: none;
+            appearance: none;
+            margin-top: 2rem;
+            width: 500px;
+            height: 20px;
+            border-radius: 1rem;
+        }
+
+        &__progress[value]::-webkit-progress-bar {
+            background-color: #eee;
+            border-radius: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+        }
+
+        &__progress[value]::-webkit-progress-value {
+            background-image: -webkit-linear-gradient(-45deg, #e9910f, #e9910f, #e9910f, #e9910f),
+                -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25)),
+                -webkit-linear-gradient(left, #09c, #f44);
+
+            border-radius: 1rem;
+            background-size: 35px 20px, 100% 100%, 100% 100%;
+        }
+
+        &__percent {
+            display: block;
+            margin-top: 0.5rem;
+        }
+    }
+}
