@@ -1,5 +1,5 @@
 import "./sidebar.scoped.scss";
-import { NavLink, Link, Route, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { ReactComponent as HeartIcon } from "src/components/Icons/HeartIcon.svg";
 import { ReactComponent as HomeIcon } from "src/components/Icons/HomeIcon.svg";
 import { ReactComponent as PlayIcon } from "src/components/Icons/PlayIcon.svg";
@@ -25,11 +25,7 @@ export default function Sidebar() {
           <HomeIcon />
           <span>صفحه اصلی</span>
         </NavLink>
-        <NavLink
-          to="/search"
-          className="sidebar__menu-item"
-          // :className="{ active: $route.path == '/search' }"
-        >
+        <NavLink to="/search" className="sidebar__menu-item">
           <SearchIcon />
           <span>جستجو</span>
         </NavLink>
@@ -41,34 +37,18 @@ export default function Sidebar() {
           <PlayIcon />
           <span>پخش آهنگ</span>
         </NavLink>
-        <NavLink
-          to="/favorites"
-          className="sidebar__menu-item"
-          // :className="{
-          //   active: $route.path == '/favorites',
-          // }"
-        >
+        <NavLink to="/favorites" className="sidebar__menu-item">
           <HeartIcon />
           <span>محبوب ترین ها</span>
         </NavLink>
-        <NavLink
-          to="/playlists"
-          className="sidebar__menu-item"
-          // :className="{
-          //   active: $route.path.indexOf('/playlists') > -1,
-          // }"
-        >
+        <NavLink to="/playlists" className="sidebar__menu-item">
           <SelectedlistIcon />
           <span>لیست پخش منتخب</span>
         </NavLink>
-        <Link
-          to="/upload"
-          className="sidebar__menu-item"
-          // :className="{ active: $route.path == '/upload' }"
-        >
+        <NavLink to="/upload" className={`sidebar__menu-item`}>
           <UploadmusicIcon />
           <span>آپلود آهنگ</span>
-        </Link>
+        </NavLink>
       </div>
     </aside>
   );
