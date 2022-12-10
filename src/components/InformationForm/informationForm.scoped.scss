@@ -1,0 +1,130 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+$primaryColor: #ffa928;
+$secondaryColor: #0f0f0f;
+$myBackgroundColor: #464646;
+
+.form {
+    padding: 32px 1.5rem;
+    // background-color: rgba($color: $myBackgroundColor, $alpha: 0.4);
+    background-color: #353535;
+    border-radius: 16px;
+    color: white;
+    margin-bottom: 2rem;
+
+    label {
+        display: block;
+        font-size: 0.875rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__song-information {
+        @media (max-width: 768px) {
+            display: block;
+        }
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 3rem;
+        margin-bottom: 2.25rem;
+
+        .grid-item {
+            width: 100%;
+            position: relative;
+            height: fit-content;
+
+            div:first-child input {
+                margin-bottom: 2.25rem;
+            }
+
+            input {
+                width: 100%;
+                font-size: 0.875rem;
+                color: #999999;
+                // background-color: rgba($color: $myBackgroundColor, $alpha: 0.3);
+                background-color: rgba($color: #999999, $alpha: 0.1);
+                padding: 1rem 0.5rem;
+                border-radius: 1rem;
+            }
+
+            &__song-img {
+                width: 100%;
+                aspect-ratio: 2.175;
+                border-radius: 0px 0px 16px 16px;
+            }
+        }
+    }
+
+    &__shade {
+        @media (max-width: 768px) {
+            bottom: 1%;
+        }
+
+        background-color: rgba($color: #464646, $alpha: 0.5);
+        position: absolute;
+        width: 100%;
+        left: 0px;
+        height: 25%;
+        bottom: 3%;
+        border-radius: 0px 0px 16px 16px;
+        display: flex;
+        gap: 0.25rem;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .image-uploader-label {
+            cursor: pointer;
+        }
+    }
+
+    &__song-lyrics {
+        textarea {
+            width: 100%;
+            font-size: 0.875rem;
+            color: #999999;
+            background-color: rgba($color: #999999, $alpha: 0.1);
+            // background-color: rgba($color: $myBackgroundColor, $alpha: 0.3);
+            padding: 1rem 0.5rem;
+            border-radius: 1rem;
+            margin-bottom: 3rem;
+        }
+    }
+
+    &__btns {
+        direction: ltr;
+
+        input[type="submit"] {
+            background-image: linear-gradient(106.97deg, #fe8a48 -11.29%, #fda53e 91.8%);
+            padding: 0.625rem 4rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-left: 1rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-image: linear-gradient(106.97deg, #ff792b -11.29%, #e48921 91.8%);
+        }
+
+        input[type="button"] {
+            background-color: rgba($color: $myBackgroundColor, $alpha: 0.3);
+            padding: 0.625rem 4rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover {
+            background-color: rgba($color: $myBackgroundColor, $alpha: 0.6);
+        }
+    }
+}
