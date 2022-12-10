@@ -5,6 +5,7 @@ export function useGetFavoriteMusic(enabled = true) {
     return useQuery(
         {
             queryKey: ['favoriteMusic'],
+            networkMode: 'always',
             queryFn: () => axios.get('/music/favorite').then(({ data }) => data),
             enabled,
             initialData: [],

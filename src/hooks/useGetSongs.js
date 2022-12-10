@@ -4,20 +4,18 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'src/utils/axios';
 
 export function useGetSongs(enabled = true) {
-    // return useQuery(
-    //     {
-    //         queryKey: ['songs'],
-    //         queryFn: () => axios.get('/music').then(({ data }) => data),
-    //     },
-    //     {
-    //         enabled: false,
-    //         onError: (error) => {
-    //             console.log(error);
-    //         },
-    //         initialData: []
-    //         // select: response => response.data,
-    //     }
-    // )
+    return useQuery(
+        {
+            queryKey: ['songs'],
+            networkMode: 'always',
+            queryFn: () => axios.get('/music').then(({ data }) => data),
+            enabled: true,
+            initialData: [],
+            onError: (error) => {
+                console.log(error);
+            },
+        }
+    )
     // return useQuery(['songs'], () => axios.get('/music'),
     //     {
     //         enabled: true,
@@ -28,15 +26,4 @@ export function useGetSongs(enabled = true) {
     //         },
     //     }
     // )
-    return useQuery(
-        {
-            queryKey: ['songs'],
-            queryFn: () => axios.get('/music').then(({ data }) => data),
-            enabled: true,
-            initialData: [],
-            onError: (error) => {
-                console.log(error);
-            },
-        }
-    )
 }
