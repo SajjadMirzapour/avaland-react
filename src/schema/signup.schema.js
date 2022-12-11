@@ -21,7 +21,7 @@ const schema = yup
             .max(15, msg.max(terms.PASSWORD, 15)),
         repeatPassword: yup
             .string()
-            .required(msg.required(terms.PASSWORD))
+            .required(msg.required(terms.REPEAT_PASSWPRD))
             .min(4, msg.min(terms.REPEAT_PASSWPRD))
             .max(15, msg.max(terms.REPEAT_PASSWPRD, 15)),
     })
