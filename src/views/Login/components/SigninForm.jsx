@@ -1,3 +1,4 @@
+import "./signinForm.scoped.scss";
 import loginschema from "src/schema/login.schema";
 import Input from "src/components/Input";
 import { useForm } from "react-hook-form";
@@ -10,6 +11,7 @@ export default function SigiinForm({ setFormKey }) {
     formState: { errors },
     handleSubmit,
   } = useForm({ resolver: yupResolver(loginschema) });
+
   const { mutateAsync, isLoading } = useLoginMutation();
 
   const onSubmit = async (data) => {

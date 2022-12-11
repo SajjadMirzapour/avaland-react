@@ -7,9 +7,9 @@ import RestoreForm from "./components/RestoreForm";
 const MAPPED_COMPONENTS = [SignInForm, SignUpForm, RestoreForm];
 
 export default function Login() {
-  const [formKey, setFormKey] = useState(0);
   const googleLogin = () => console.log("hi");
 
+  const [formKey, setFormKey] = useState(0);
   const getComponent = () => {
     const Component = MAPPED_COMPONENTS[formKey];
     return <Component setFormKey={setFormKey} />;
@@ -26,38 +26,6 @@ export default function Login() {
         {formKey === 1 && <SignUpForm setFormKey={setFormKey} />} */}
 
         {getComponent()}
-        {/* <form className="restore" v-if="restoreShow">
-          <div className="restore__info"> */}
-        {/* <label for="username">نام کاربری</label>
-            <Field
-              type="text"
-              name="username"
-              id="username"
-              // :rules="usernameValidation"
-            />
-            <ErrorMessage name="username" /> */}
-        {/* </div>
-          <div className="restore__info"> */}
-        {/* <label for="password">رمز عبور</label>
-            <Field
-              type="password"
-              id="password"
-              name="password"
-              // :rules="passwordValidation"
-            />
-            <ErrorMessage name="password" /> */}
-        {/* </div>
-          <button type="submit" className="restore__enter">
-            ورود
-          </button>
-          <div className="restore__account">
-            <span>حساب کاربری ندارید؟</span>
-            <NavLink to="">ثبت نام</NavLink>
-          </div>
-          <div className="restore__restore">
-            <NavLink to=""> بازیابی رمز عبور</NavLink>
-          </div>
-        </form> */}
         <div className="google-account">
           <button onClick={googleLogin}>
             <img src="images/logo-google.png" alt="#" />

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import "./restoreForm.scoped.scss";
 import restoreSchema from "src/schema/restore.schema";
 import Input from "src/components/Input";
 import { useForm } from "react-hook-form";
@@ -18,8 +18,8 @@ export default function SigiinForm({ setFormKey }) {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="sign-in">
-      <div className="sign-in__info">
+    <form onSubmit={handleSubmit(onSubmit)} className="restore">
+      <div className="restore__info">
         <Input
           register={register}
           name="username"
@@ -30,23 +30,23 @@ export default function SigiinForm({ setFormKey }) {
       <div className="sign-in__info">
         <Input
           register={register}
-          name="password"
+          name="phoneNumber"
           errors={errors}
           label="شماره همراه"
-          type="number"
+          type="text"
         />
       </div>
       <input
         type="submit"
         value="ورود"
         disabled={isLoading}
-        className="sign-in__enter"
+        className="restore__enter"
       />
-      <div className="sign-in__account">
+      <div className="restore__account">
         <span>حساب کاربری ندارید؟</span>
         <button onClick={() => setFormKey(1)}>ثبت نام</button>
       </div>
-      <div className="sign-in__restore">
+      <div className="restore__restore">
         <button style={{ color: "white" }} onClick={() => setFormKey(2)}>
           بازیابی رمز عبور
         </button>

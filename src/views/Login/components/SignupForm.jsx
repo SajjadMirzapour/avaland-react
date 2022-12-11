@@ -1,3 +1,4 @@
+import "./signupForm.scoped.scss";
 import signupSchema from "src/schema/signup.schema";
 import Input from "src/components/Input";
 import { useForm } from "react-hook-form";

@@ -1,0 +1,83 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+$primaryColor: #ffa928;
+$secondaryColor: #0f0f0f;
+$myBackgroundColor: #464646;
+
+.sign-up {
+    @media (min-width: 1024px) and (max-width: 1536px) {
+        margin: 0px 3rem 0px 3rem;
+    }
+    @media (min-width: 1537px) {
+        margin: 0px 4rem 0px 4rem;
+    }
+    margin: 0px 3rem 0px 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba($color: white, $alpha: 0.2);
+
+    &__info {
+        position: relative;
+
+        span {
+            position: absolute;
+            top: 80%;
+            right: 0px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: red;
+        }
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: calc(100% - 1rem);
+        background-color: rgba($color: #464646, $alpha: 0.5);
+        color: white;
+        padding: 1rem 0.5rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+    }
+
+    &__enter {
+        width: 100%;
+        background-image: linear-gradient(106.97deg, #fe8a48 -11.29%, #fda53e 91.8%);
+        color: white;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 1.5rem 0px;
+    }
+
+    &__enter:hover {
+        background-image: linear-gradient(106.97deg, #ff792b -11.29%, #e48921 91.8%);
+    }
+
+    &__account {
+        margin-bottom: 1.5rem;
+        text-align: center;
+
+        span {
+            color: rgba($color: white, $alpha: 0.5);
+            margin-left: 0.5rem;
+        }
+
+        button {
+            color: white;
+        }
+    }
+
+    &__restore {
+        text-align: center;
+
+        a {
+            color: $primaryColor;
+        }
+    }
+}
