@@ -1,7 +1,7 @@
 import { ErrorMessage } from "@hookform/error-message";
 import { useState } from "react";
 
-export default function Input({
+function Input({
   register,
   name,
   errors,
@@ -11,15 +11,15 @@ export default function Input({
   ...rest
 }) {
   const [showPassword, setShowPassword] = useState(false);
+  const [modifiedType, setModifiedType] = useState(type);
+
   const togglePassword = () => {
     setShowPassword((prev) => !prev);
     setModifiedType((prev) => (prev === "password" ? "text" : "password"));
   };
 
-  const [modifiedType, setModifiedType] = useState(type);
-
   return (
-    <div style={{ marginBottom: "4px", minHeight: "103px" }}>
+    <div style={{ marginBottom: "8px", minHeight: "103px" }}>
       <label htmlFor={`input-${name}`}>{label}</label>
       <input
         style={{ marginTop: "8px" }}
@@ -47,7 +47,6 @@ export default function Input({
       ) : (
         ""
       )}
-
       <ErrorMessage
         errors={errors}
         name={name}
@@ -58,3 +57,5 @@ export default function Input({
     </div>
   );
 }
+
+export default Input;

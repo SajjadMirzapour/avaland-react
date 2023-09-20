@@ -19,7 +19,7 @@ export default function Card({ data }) {
               {data.image ? (
                 <span>ایجاد شده توسط {data.creator}</span>
               ) : (
-                <span> {data.singer} </span>
+                <span>خواننده {data.singer} </span>
               )}
             </div>
             {data.image ? (

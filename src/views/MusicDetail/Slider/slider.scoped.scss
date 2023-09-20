@@ -9,6 +9,9 @@ $myBackgroundColor: #464646;
 
 section {
     h2 {
+        @media (max-width: 768px) {
+            display: none;
+        }
         color: white;
     }
 

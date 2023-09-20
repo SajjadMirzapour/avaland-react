@@ -54,7 +54,7 @@ export default function SignupForm({ setFormKey }) {
         className="sign-up__enter"
       />
       <div className="sign-up__account">
-        <span>حساب کاربری ندارید؟</span>
+        <span>حساب کاربری دارید؟</span>
         <button onClick={() => setFormKey(0)}>ورود</button>
       </div>
       <div className="sign-up__restore">

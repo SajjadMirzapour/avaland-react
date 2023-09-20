@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getSearchValue } from "src/store/search.slice";
 import "./header.scoped.scss";
@@ -7,6 +8,13 @@ export default function Header() {
 
   const handleSearch = (ev) => {
     getSearchValue(ev.target.value)(dispatch);
+  };
+
+  const [show, setShow] = useState(false);
+  const [arrowUp, setArrowUp] = useState(false);
+  const handleShow = () => {
+    setShow((prev) => !prev);
+    setArrowUp((prev) => !prev);
   };
 
   return (
@@ -40,10 +48,39 @@ export default function Header() {
             <span>فیلتر</span>
           </div>
         </div>
-        <a className="header__profile" href="#">
+        <button onClick={handleShow} className="header__profile">
           <span>سجاد میرزا</span>
-          <img src="/images/arrow-down.svg" alt="#" />
-        </a>
+          {arrowUp ? (
+            <img
+              src="/images/arrow-down.svg"
+              alt="#"
+              className="header__profile__arrowUp"
+            />
+          ) : (
+            <img src="/images/arrow-down.svg" alt="#" />
+          )}
+          {/* <img src="/images/arrow-down.svg" alt="#" /> */}
+        </button>
+        <div
+          className={
+            show
+              ? "header__person-info show-more"
+              : "header__person-info show-less"
+          }
+        >
+          <a className="header__person-info__list-item" href="#">
+            تغییر نام کاربری
+          </a>
+          <a className="header__person-info__list-item" href="#">
+            تغییر رمز عبور
+          </a>
+          <a className="header__person-info__list-item" href="#">
+            تغییر عکس پروفایل
+          </a>
+          <a className="header__person-info__list-item" href="#">
+            خروج از حساب کاربری
+          </a>
+        </div>
       </header>
     </div>
   );

@@ -1,12 +1,16 @@
 import "./tableBody.scoped.scss";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { handleLikeSongs } from "src/store/likedSongs.slice";
 
 export default function TableBody({ data, index }) {
-  const [showLike, setShowLike] = useState(-1);
-  const toggleLike = (index) => {
-    setShowLike(showLike === index ? -1 : index);
+  const dispatch = useDispatch();
+  const toggleLike = (id) => {
+    handleLikeSongs(id)(dispatch);
   };
+
+  const likedSongs = useSelector((store) => store.likeReducer.likedSongsId);
 
   const [showPlaylistModal, setShowPlaylistModal] = useState(false);
   const togglePlaylistModal = (index) => {
@@ -40,8 +44,8 @@ export default function TableBody({ data, index }) {
         <td>{new Date(data.release_date).toLocaleDateString("fa")}</td>
         <td className="musicInfo">
           <span dir="ltr"> {data.duration} </span>
-          <button className="likeBtn" onClick={() => toggleLike(index)}>
-            {showLike === index ? (
+          <button className="likeBtn" onClick={() => toggleLike(data.id)}>
+            {likedSongs.includes(data.id) ? (
               <img src="/images/heart-golden.png" alt="#" />
             ) : (
               <img src="/images/heart.svg" alt="#" />

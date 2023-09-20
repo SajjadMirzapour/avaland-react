@@ -17,8 +17,6 @@ export default function PlaylistDetail() {
     (store) => store.playlistReducer.playlistDetail
   );
 
-  console.log("playlistDetail", playlistDetail);
-
   return (
     <>
       <PlaylistCard playlistDetail={playlistDetail} />

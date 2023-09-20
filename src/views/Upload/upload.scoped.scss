@@ -1,0 +1,28 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+$primaryColor: #ffa928;
+$secondaryColor: #0f0f0f;
+$myBackgroundColor: #464646;
+
+.breadcrumb {
+    margin-bottom: 48px;
+
+    span,
+    img {
+        margin-left: 8px;
+    }
+
+    span {
+        color: #999999;
+        padding: 8px;
+        border-bottom: 1px solid myBackgroundColor;
+    }
+
+    span:hover {
+        color: $primaryColor;
+        border-bottom: 1px solid $primaryColor;
+    }
+}

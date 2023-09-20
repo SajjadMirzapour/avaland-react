@@ -9,16 +9,14 @@ $myBackgroundColor: #464646;
 
 .form {
     padding: 32px 1.5rem;
-    // background-color: rgba($color: $myBackgroundColor, $alpha: 0.4);
     background-color: #353535;
     border-radius: 16px;
     color: white;
-    margin-bottom: 2rem;
+    margin-bottom: 14rem;
 
     label {
         display: block;
         font-size: 0.875rem;
-        margin-bottom: 0.5rem;
     }
 
     &__song-information {
@@ -28,22 +26,21 @@ $myBackgroundColor: #464646;
         display: flex;
         flex-direction: row-reverse;
         gap: 3rem;
-        margin-bottom: 2.25rem;
 
         .grid-item {
             width: 100%;
             position: relative;
             height: fit-content;
+            margin-bottom: 2rem;
 
             div:first-child input {
-                margin-bottom: 2.25rem;
+                margin-bottom: 0.5rem;
             }
 
             input {
                 width: 100%;
                 font-size: 0.875rem;
                 color: #999999;
-                // background-color: rgba($color: $myBackgroundColor, $alpha: 0.3);
                 background-color: rgba($color: #999999, $alpha: 0.1);
                 padding: 1rem 0.5rem;
                 border-radius: 1rem;
@@ -62,38 +59,28 @@ $myBackgroundColor: #464646;
             bottom: 1%;
         }
 
-        background-color: rgba($color: #464646, $alpha: 0.5);
         position: absolute;
-        width: 100%;
         left: 0px;
-        height: 25%;
-        bottom: 3%;
-        border-radius: 0px 0px 16px 16px;
-        display: flex;
-        gap: 0.25rem;
-        align-items: center;
-        justify-content: center;
+        bottom: 4.5%;
+        width: 100%;
 
-        img {
-            width: 1.5rem;
-            height: 1.5rem;
-        }
+        div {
+            background-color: rgba($color: #464646, $alpha: 0.5);
+            height: 32px;
+            border-radius: 0px 0px 16px 16px;
+            display: flex;
+            gap: 0.25rem;
+            align-items: center;
+            justify-content: center;
 
-        .image-uploader-label {
-            cursor: pointer;
-        }
-    }
+            img {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
 
-    &__song-lyrics {
-        textarea {
-            width: 100%;
-            font-size: 0.875rem;
-            color: #999999;
-            background-color: rgba($color: #999999, $alpha: 0.1);
-            // background-color: rgba($color: $myBackgroundColor, $alpha: 0.3);
-            padding: 1rem 0.5rem;
-            border-radius: 1rem;
-            margin-bottom: 3rem;
+            .image-uploader-label {
+                cursor: pointer;
+            }
         }
     }
 

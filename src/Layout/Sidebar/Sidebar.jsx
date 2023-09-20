@@ -18,9 +18,10 @@ export default function Sidebar() {
       <div className="sidebar__menu">
         <NavLink
           to="/"
-          className={`sidebar__menu-item ${
-            route.pathname === "/" ? "active" : ""
-          }`}
+          // className={`sidebar__menu-item ${
+          //   route.pathname === "/" ? "active" : ""
+          // }`}
+          className="sidebar__menu-item"
         >
           <HomeIcon />
           <span>صفحه اصلی</span>

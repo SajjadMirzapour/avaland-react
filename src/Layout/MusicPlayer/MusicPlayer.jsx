@@ -4,16 +4,19 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { UseGetDetailSong } from "src/hooks";
 import useMusicControl from "src/hooks/useMusicControl";
-// import AudioPlayer from "react-modern-audio-player";
+import { handleLikeSongs } from "src/store/likedSongs.slice";
+import { useDispatch, useSelector } from "react-redux";
 
 function MusicPlayer() {
   const params = useParams();
   const { data: song } = UseGetDetailSong(params.id);
 
-  const [showLike, setShowLike] = useState(false);
-  const toggleLike = () => {
-    setShowLike((prev) => !prev);
+  const dispatch = useDispatch();
+  const toggleLike = (id) => {
+    handleLikeSongs(id)(dispatch);
   };
+
+  const likedSongs = useSelector((store) => store.likeReducer.likedSongsId);
 
   const audioRef = useRef({});
   const volumeRef = useRef([]);
@@ -26,34 +29,27 @@ function MusicPlayer() {
     changeVolume,
     isPlayingMusic,
     showPauseIcon,
-  } = useMusicControl(
-    audioRef.current,
-    volumeRef.current
-    // currentTimeRef.current,
-    // timeRef.current,
-    // toatalTimeRef.current
-  );
-
-  // const mySong = {
-  //   name: song?.name,
-  //   writer: song?.singer,
-  //   img: song?.image_path,
-  //   src: song?.src_path,
-  //   id: song?.id,
-  // };
+  } = useMusicControl();
+  // audioRef.current,
+  // volumeRef.current
+  // currentTimeRef.current,
+  // timeRef.current,
+  // toatalTimeRef.current
 
   return (
     // isPlayingMusic && (
-    <div id="player">
+    <div
+      id="player"
+      style={isPlayingMusic ? { display: "" } : { display: "none" }}
+    >
       {/* <AudioPlayer playList={mySong} /> */}
       <audio id="music_player" ref={audioRef} src={song?.src_path} />
-      {/* <source src="/songs/Donya-Zendegim-128.mp3" /> */}
       <div className="music-player__menu">
         <button>
           <img src="/images/more.svg" alt="#" />
         </button>
-        <button onClick={toggleLike} className="item">
-          {showLike ? (
+        <button onClick={() => toggleLike(song?.id)} className="item">
+          {likedSongs.includes(song?.id) ? (
             <img src="/images/heart-full-white.png" alt="#" />
           ) : (
             <img src="/images/heart.svg" alt="#" />
@@ -62,16 +58,17 @@ function MusicPlayer() {
       </div>
       <div className="music-player__wrapper">
         <div className="music-player__btns">
-          <button className="music-player__next">
-            <img src="/images/next.png" alt="#" />
-          </button>
           <button
             onClick={playMusic}
             className="music-player__pause"
             id="play_button"
           >
             {showPauseIcon ? (
-              <img src="/images/play-pure.png" width="24" height="24" alt="#" />
+              <img
+                src="/images/play-pure.png"
+                // width="24" height="24"s
+                alt="#"
+              />
             ) : (
               <img
                 src="/images/pause-pure.png"
@@ -80,9 +77,6 @@ function MusicPlayer() {
                 alt="#"
               />
             )}
-          </button>
-          <button className="music-player__previous">
-            <img src="/images/previous.png" alt="#" />
           </button>
         </div>
         <div className="music-player__time">
@@ -122,8 +116,8 @@ function MusicPlayer() {
         </div>
       </div>
     </div>
-    // )
   );
+  // );
 }
 
 export default MusicPlayer;

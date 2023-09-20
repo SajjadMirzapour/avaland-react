@@ -4,6 +4,7 @@ import Header from "./Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
 import SidebarMobile from "./Sidebar/SidebarMobile";
 import MusicPlayer from "./MusicPlayer/MusicPlayer";
+import PlaylistPlayer from "./PlaylistPlayer/PlaylistPlayer";
 
 export default function Layout() {
   return (
@@ -19,6 +20,7 @@ export default function Layout() {
         <Outlet />
       </div>
       <MusicPlayer />
+      <PlaylistPlayer />
     </div>
   );
 }

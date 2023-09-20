@@ -32,7 +32,7 @@ $myBackgroundColor: #464646;
     color: rgba($color: #ffffff, $alpha: 0.6);
 
     &__container {
-        width: 100%;
+        // width: 100%;
         @include flex-center();
         @media (max-width: 768px) {
             padding: 8px 1.5rem;
@@ -43,6 +43,7 @@ $myBackgroundColor: #464646;
 
     &__info {
         display: flex;
+        height: 10rem;
 
         div h1 {
             color: white;
@@ -67,8 +68,6 @@ $myBackgroundColor: #464646;
                 @media (max-width: 768px) {
                     height: 5.5rem;
                 }
-                height: 7.5rem;
-                overflow-y: hidden;
             }
         }
 
@@ -85,6 +84,22 @@ $myBackgroundColor: #464646;
 
         img {
             width: 15%;
+        }
+
+        &__showLess {
+            transition: all 600ms;
+            height: 3.5rem;
+            overflow-y: hidden;
+        }
+
+        &__showMore {
+            transition: all 600ms;
+            height: 10rem;
+            overflow-y: hidden;
+        }
+
+        &__arrow-up {
+            rotate: 180deg;
         }
     }
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import usePlaylistControl from "src/hooks/usePlaylistControl";
 import "./playlistCard.scoped.scss";
 
 export default function PlaylistCard({ playlistDetail }) {
@@ -11,6 +12,8 @@ export default function PlaylistCard({ playlistDetail }) {
   const toggleModal = () => {
     setShowModal((prev) => !prev);
   };
+
+  const { play_aud_playlist } = usePlaylistControl();
   return (
     <div className="playlist-card">
       <div className="playlist-card__info">
@@ -20,7 +23,10 @@ export default function PlaylistCard({ playlistDetail }) {
             src={playlistDetail.songs?.[0]?.image_path}
             alt="#"
           />
-          <button className="playlist-card__playBtn">
+          <button
+            onClick={() => play_aud_playlist(0)}
+            className="playlist-card__playBtn"
+          >
             <img src="/images/playPlaylist-Btn.png" alt="#" />
           </button>
         </div>

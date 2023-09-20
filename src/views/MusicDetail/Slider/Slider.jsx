@@ -37,7 +37,7 @@ function Slider({ data }) {
         <Swiper
           modules={[Navigation, A11y]}
           speed={900}
-          // spaceBetween={50}
+          spaceBetween={50}
           breakpoints={{
             768: {
               slidesPerView: 2.5,
@@ -56,7 +56,7 @@ function Slider({ data }) {
               spaceBetween: 30,
             },
           }}
-          // slidesPerView={3}
+          slidesPerView={3}
           navigation={{
             disabledClass: "invisible",
             nextEl: ".swiper-button-next",

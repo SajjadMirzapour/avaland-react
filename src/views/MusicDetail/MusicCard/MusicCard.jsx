@@ -7,16 +7,19 @@ import AddToPlaylistModal from "./AddToPlaylistModal/AddToPlaylistModal";
 import DeleteModal from "./DeleteModal/DeleteModal";
 import EditMusic from "./EditMusic/EditMusic";
 import useMusicControl from "src/hooks/useMusicControl";
-import { playingMusicControl } from "src/store/music.slice";
-import { useDispatch } from "react-redux";
+import { playingMusicControl } from "src/store/player.slice";
+import { useDispatch, useSelector } from "react-redux";
+import { handleLikeSongs } from "src/store/likedSongs.slice";
 
 function MusicCard() {
   const params = useParams();
 
-  const [showLike, setShowLike] = useState(true);
-  const toggleLike = () => {
-    setShowLike((prev) => !prev);
+  const dispatch = useDispatch();
+  const toggleLike = (id) => {
+    handleLikeSongs(id)(dispatch);
   };
+
+  const likedSongs = useSelector((store) => store.likeReducer.likedSongsId);
 
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => {
@@ -46,6 +49,10 @@ function MusicCard() {
     setShowAddToPlaylistModal((prev) => !prev)
   );
 
+  const [showLyrics, setShowLyrics] = useState(false);
+  const handleShow = () => {
+    setShowLyrics((prev) => !prev);
+  };
   // const dispatch = useDispatch();
   // const processListen = () => {
   //   playingMusicControl()(dispatch);
@@ -92,11 +99,11 @@ function MusicCard() {
                 </div>
               </div>
               <div className="playlist-card__btns">
-                <button className="item" onClick={toggleLike}>
-                  {showLike ? (
-                    <img v-else="liked" src="/images/heart.svg" alt="#" />
-                  ) : (
+                <button className="item" onClick={() => toggleLike(data?.id)}>
+                  {likedSongs.includes(data?.id) ? (
                     <img src="/images/heart-full-white.png" alt="#" />
+                  ) : (
+                    <img v-else="liked" src="/images/heart.svg" alt="#" />
                   )}
                 </button>
                 <button className="item">
@@ -133,11 +140,27 @@ function MusicCard() {
             </div>
             <div className="playlist-card__lyrics">
               <div>
-                <p>{data?.lyrics}</p>
+                <p
+                  className={
+                    showLyrics
+                      ? "playlist-card__lyrics__showMore"
+                      : "playlist-card__lyrics__showLess"
+                  }
+                >
+                  {data?.lyrics}
+                </p>
               </div>
-              <button>
+              <button onClick={handleShow}>
                 <span>مشاهده بیشتر</span>
-                <img src="/images/arrow-down.svg" alt="#" />
+                {showLyrics ? (
+                  <img
+                    src="/images/arrow-down.svg"
+                    alt="#"
+                    className="playlist-card__lyrics__arrow-up"
+                  />
+                ) : (
+                  <img src="/images/arrow-down.svg" alt="#" />
+                )}
               </button>
             </div>
           </div>
