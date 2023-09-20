@@ -1,12 +1,18 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { playingMusicControl } from "src/store/music.slice";
+import { playingMusicControl } from "src/store/player.slice";
 
-function useMusicControl(player, volume, currentTime, inputTime, totalTime) {
-    const isPlayingMusic = useSelector((store) => store.musicReducer.isPlayingMusic)
-    const showPauseIcon = useSelector((store) => store.musicReducer.showPauseIcon)
+function useMusicControl(
+    // player, volume, currentTime, inputTime, totalTime
+) {
+
+    const isPlayingMusic = useSelector((store) => store.playerReducer.isPlayingMusic)
+    const showPauseIcon = useSelector((store) => store.playerReducer.showPauseIcon)
 
     const dispatch = useDispatch()
+
+    const player = document.getElementById("music_player");
+
 
     const playMusic = () => {
 
@@ -15,10 +21,8 @@ function useMusicControl(player, volume, currentTime, inputTime, totalTime) {
         const isPlaying = !player?.paused && !player?.ended
 
         if (!isPlaying) {
-            console.log('inside play');
             player?.play();
         } else {
-            console.log('inside pause');
             player?.pause();
         }
 
@@ -26,9 +30,8 @@ function useMusicControl(player, volume, currentTime, inputTime, totalTime) {
     };
 
     const changeVolume = () => {
-
-        player.volume = volume.value;
-        // player.volume = document.getElementById("change_vol").value;
+        // player.volume = volume.value;
+        player.volume = document.getElementById("change_vol").value;
     };
 
     const timeString = (secs) => {
@@ -97,7 +100,7 @@ function useMusicControl(player, volume, currentTime, inputTime, totalTime) {
             };
         }
 
-    }, []);
+    });
 
     return { playMusic, changeVolume, isPlayingMusic, showPauseIcon }
 }

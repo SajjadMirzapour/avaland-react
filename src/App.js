@@ -25,6 +25,9 @@ import Favorites from './views/Favorites/Favorites';
 import Search from './views/Search/Search';
 import Music from './views/Music/Music';
 import MusicDetail from './views/MusicDetail/MusicDetail';
+import GuardedRoute from './components/GuardRoute/GuardRoute';
+import RequireAuth from './components/RequireAuth/RequireAuth';
+import NotFound from './views/NotFound/NotFound';
 
 const queryClient = new QueryClient({ defaultOptions: { queries: { refetchOnWindowFocus: false } } })
 
@@ -39,12 +42,15 @@ function App() {
               <Route index element={<Home />} />
               <Route path='/playlists/:id' element={<PlaylistDetail />} />
               <Route path='/playlists' element={<Playlist />} />
-              <Route path='/upload' element={<Upload />} />
               <Route path='/favorites' element={<Favorites />} />
               <Route path='/search' element={<Search />} />
               <Route path='/musics/:id' element={<MusicDetail />} />
               <Route path='/musics' element={<Music />} />
+              <Route element={<RequireAuth />} >
+                <Route path='/upload' element={<Upload />} />
+              </Route >
             </Route>
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <ReactQueryDevtools initialIsOpen={false} />
           <ToastContainer position='top-right' />
