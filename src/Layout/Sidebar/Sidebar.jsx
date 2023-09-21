@@ -8,7 +8,7 @@ import { ReactComponent as SelectedlistIcon } from "src/components/Icons/Selecte
 import { ReactComponent as UploadmusicIcon } from "src/components/Icons/UploadmusicIcon.svg";
 
 export default function Sidebar() {
-  const route = useLocation();
+  // const route = useLocation();
 
   return (
     <aside className="sidebar">
